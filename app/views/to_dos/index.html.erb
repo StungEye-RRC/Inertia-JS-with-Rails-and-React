@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>To Dos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th>Completed</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @to_dos.each do |to_do| %>
+      <tr>
+        <td><%= to_do.description %></td>
+        <td><%= to_do.completed %></td>
+        <td><%= link_to 'Show', to_do %></td>
+        <td><%= link_to 'Edit', edit_to_do_path(to_do) %></td>
+        <td><%= link_to 'Destroy', to_do, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New To Do', new_to_do_path %>
