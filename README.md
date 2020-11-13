@@ -4,9 +4,9 @@
 - Install React: `rails webpacker:install:react`
 - Intall InertiaJS: `yarn add @inertiajs/inertia @inertiajs/inertia-react`
 - Disable Turbo links:
-  - Remove gem from Gemfile
-  - Disable in application layout
-  - Comment out in app/javascript/packs/application.js
+  - Remove turbolinks gem from Gemfile
+  - Remove turbolinks attributes on tags in the application layout `<head>`.
+  - Comment out the loading of turbolinks in `app/javascript/packs/application.js` file.
 
 # To Run App
 
