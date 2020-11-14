@@ -27,9 +27,11 @@ const ToDoApp = ({ toDoItems, errors = {} }) => {
     event.preventDefault();
     const completedItems = toDoItems.filter((item) => item.completed);
 
-    for (const item of completedItems) {
-      await axios.delete("/to_dos/" + item.id);
-    }
+    // Create a collection of axios requests (which are promises) and await them all.
+    await Promise.all(
+      completedItems.map((item) => axios.delete("/to_dos/" + item.id))
+    );
+
     Inertia.reload();
   }
 
